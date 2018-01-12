@@ -10,7 +10,7 @@ public class Main {
 		NumberGame game = new ShootGame(upperBound);
 //		GameConsole ui = new GameConsole( );
 //		int solution = ui.play( game );
-		/* Uncomment below to use gamesolver */
+		/* Uncomment to use gamesolver */
 		GameSolver gs = new GameSolver(); 
 		int solution = gs.play(game);
 		System.out.println("The secret number is " + solution + ".");

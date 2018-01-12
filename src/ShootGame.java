@@ -69,6 +69,10 @@ public class ShootGame extends NumberGame {
 		return "Guess a secret number.";
 	}
 	
+	/**
+	 * Count the time user use for guessing.
+	 * @return count amount times that user use for guessing.
+	 */
 	public int getCount() {
 		return this.count;
 	}
