@@ -62,4 +62,12 @@ public class NumberGame {
     public String toString() {
 		return "You should override this method for your game";
     }
+	
+	/**
+	 * Count the time user use for guessing.
+	 * @return count amount times that user use for guessing.
+	 */
+	public int getCount() {
+		return 0;
+	}
 }
