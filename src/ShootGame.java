@@ -1,79 +1,74 @@
 import java.util.Random;
 
 /**
- * ShootGame is a game of guessing a secret number.
- * 
+ * Game of guessing a secret number.
  * @author Patiphan Srisook
- * @version 1.0
- *
  */
-public class ShootGame extends NumberGame {
-	/** upper bound for secret number */
-	private int upperbound;
-	/** the solution to the game*/
+public class ShootGame extends NumberGame{
+	
+	/* upper bound for secret number */
+	private int upperBound;
+	/* the solution to the game */
 	private int secret;
-	/** count amount of time user use for guessing*/
+	/* count how many guesses the user makes */
 	private int count;
 	
-	/** Initialize a new default game*/
+	/* Initialize a default game */
 	public ShootGame() {
 		this(100);
 	}
 	
-	public ShootGame(int upperbound) {
+	/**
+	 * Initialize a new game.
+	 * @param upperBound is the max value for the secret number (>1).
+	 */
+	public ShootGame(int upperBound) {
+		this.upperBound = upperBound;
+		// initial counter
 		this.count = 0;
-		this.upperbound = upperbound;
-		// create the secret number
+		// create a secret number
 		long seed = System.nanoTime();
 		Random rand = new Random(seed);
-		this.secret = rand.nextInt(upperbound) + 1;
-		super.setMessage("I'm thinking of a number between 1 and " + upperbound + ".");
+		this.secret = rand.nextInt(100) + 1;
+		setMessage("I'm thinking of a number between 1 and " + upperBound + ".");
 	}
 	
 	/**
 	 * Evaluate a user's guess.
-	 * @param number is the user's guess.
-	 * @return true if guess is correct, false otherwise.
+	 * @param number is user's guess.
+	 * @return true if guess is correct. Otherwise false.
 	 */
-	@Override
 	public boolean guess(int number) {
-		count++;
+		this.count++;
 		if(number == secret) {
-			setMessage("Correct!");
+			setMessage("Right! ");
 			return true;
 		}
-		if(number < secret) {
-			setMessage("Your answer is too small.");
+		if(number > secret) {
+			setMessage("Sorry, too large");
 		}
-		else /*if(number > secret)*/{
-			setMessage("Your answer is too large.");
+		else /* if(number < secret) */ {
+			setMessage("Sorry, too small");
 		}
 		return false;
 	}
 	
 	/**
-	 * @return upper bound for the solution to this game. 
-	 * Should be positive Integer.
+	 * @return upperBound for the solution to this game.
 	 */
-	@Override
 	public int getUpperBound() {
-		return this.upperbound;
+		return this.upperBound;
 	}
 	
 	/**
-	 * Describe the game.
-	 * @return general description of this game.
-	 */
-	@Override
-	public String toString() {
-		return "Guess a secret number.";
-	}
-	
-	/**
-	 * Count the time user use for guessing.
-	 * @return count amount times that user use for guessing.
+	 * @return count how many guesses the user makes
 	 */
 	public int getCount() {
 		return this.count;
+	}
+	
+	/** Describe the game*/
+	public String toString() {
+		return "Guess a secret number 1 to " + this.upperBound + ".";
 	}
 }

@@ -54,6 +54,13 @@ public class NumberGame {
 		return Integer.MAX_VALUE;  // not very helpful :-)
 	}
     
+	/**
+	 * @return count how many guesses the user makes
+	 */
+	public int getCount() {
+		return 0;
+	}
+	
     /**
      * toString describes the game or problem.
      * @return description of this game or the problem to be solved.
@@ -62,12 +69,4 @@ public class NumberGame {
     public String toString() {
 		return "You should override this method for your game";
     }
-	
-	/**
-	 * Count the time user use for guessing.
-	 * @return count amount times that user use for guessing.
-	 */
-	public int getCount() {
-		return 0;
-	}
 }

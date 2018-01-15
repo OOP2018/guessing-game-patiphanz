@@ -2,7 +2,7 @@ import java.util.Random;
 /**
  * Example guessing game.
  * 
- * @author Patiphan Srisook
+ * @author Your Name
  * @version 2018.01.11
  */
 public class SampleGame extends NumberGame {
@@ -10,6 +10,8 @@ public class SampleGame extends NumberGame {
     private int upperBound;
     /** the solution to the game */
     private int secret;
+    /* count how many guesses the user makes */
+	private int count;
     
 	/** count guesses */
 //TODO add an attribute to count guesses
@@ -38,6 +40,7 @@ public class SampleGame extends NumberGame {
      * @return true if guess is correct, false otherwise
      */
     public boolean guess(int number) {
+    	count++;
     	if (number == secret) {
     		setMessage("Correct! The decimal value is "+secret);
     		return true;
@@ -62,6 +65,13 @@ public class SampleGame extends NumberGame {
 		return upperBound;
 	}
     
+	/**
+	 * @return count how many guesses the user makes
+	 */
+	public int getCount() {
+		return this.count;
+	}
+	
     @Override
     public String toString() {
     	return "Convert a number from hexadecimal to decimal.";
