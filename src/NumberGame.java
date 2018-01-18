@@ -22,7 +22,6 @@ public class NumberGame {
      * @return true if correct, false otherwise
      */
     public boolean guess(int answer) {
-		// TODO your subclass should override this method
 		message = "Sorry, that's not correct";
 		return false;
     }
@@ -55,7 +54,8 @@ public class NumberGame {
 	}
     
 	/**
-	 * @return count how many guesses the user makes
+	 * Get count times that user guesses the answer.
+	 * @return count times that user guesses the answer.
 	 */
 	public int getCount() {
 		return 0;

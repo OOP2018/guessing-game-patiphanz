@@ -16,25 +16,25 @@ public class GameSolver {
 	 * @return guess is the solution
 	 */
 	public int play(NumberGame game) {
-		boolean retry = true;
+		boolean correct;
 		int max = game.getUpperBound();
-		int range = 0;
 		int min = 1;
 		int guess = 0;
 		
 		System.out.println( game.toString() );
 		System.out.println( game.getMessage() );
 		// loop until solver is correct
-		while(retry) {
-			range = max - min + 1;
-			guess = (int) ((Math.random()*range) + min);
-			boolean correct = game.guess(guess);
-			if(correct) {
-				retry = false;
+		do {
+			guess = min + (max-min)/2;
+			if (max-guess==1) {
+				game.guess(guess);
+				return guess;
 			}
-			if(game.getMessage().contains("small")) min = guess;
-			else max = guess;
-		}
+			correct = game.guess(guess);
+			if(game.getMessage().contains("too small")) min = guess;
+			else if (game.getMessage().contains("too large")) max = guess;
+			
+		} while(!correct);
 		return guess;
 	}
 }

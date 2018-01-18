@@ -29,7 +29,7 @@ public class ShootGame extends NumberGame{
 		// create a secret number
 		long seed = System.nanoTime();
 		Random rand = new Random(seed);
-		this.secret = rand.nextInt(100) + 1;
+		this.secret = rand.nextInt(this.upperBound) + 1;
 		setMessage("I'm thinking of a number between 1 and " + upperBound + ".");
 	}
 	
@@ -54,6 +54,7 @@ public class ShootGame extends NumberGame{
 	}
 	
 	/**
+	 * Get the upperBound for the solution to this game.
 	 * @return upperBound for the solution to this game.
 	 */
 	public int getUpperBound() {
@@ -61,7 +62,8 @@ public class ShootGame extends NumberGame{
 	}
 	
 	/**
-	 * @return count how many guesses the user makes
+	 * Get count times that user guesses the answer.
+	 * @return count times that user guesses the answer.
 	 */
 	public int getCount() {
 		return this.count;
