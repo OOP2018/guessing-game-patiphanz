@@ -1,3 +1,4 @@
+package game;
 /**
  * Automatically find the secret to any NumberGame.
  * @author Patiphan Srisook

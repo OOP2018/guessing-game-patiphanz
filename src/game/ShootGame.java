@@ -1,3 +1,4 @@
+package game;
 import java.util.Random;
 
 /**
@@ -42,6 +43,8 @@ public class ShootGame extends NumberGame{
 		this.count++;
 		if(number == secret) {
 			setMessage("Right! ");
+			setChanged();
+			notifyObservers();
 			return true;
 		}
 		if(number > secret) {
@@ -50,6 +53,8 @@ public class ShootGame extends NumberGame{
 		else /* if(number < secret) */ {
 			setMessage("Sorry, too small");
 		}
+		setChanged();
+		notifyObservers();
 		return false;
 	}
 	
