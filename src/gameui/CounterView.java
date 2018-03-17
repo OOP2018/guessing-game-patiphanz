@@ -12,14 +12,25 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * A Controller for a window that shows the value of counter from 
+ * GuessingGame
+ * 
+ * @author Patiphan Srisook
+ *
+ */
 public class CounterView extends Stage implements Observer {
-
+	/** the stage (top-level window) for showing scene */
 	private Stage stage;
-	
+	/** a game that we want to count */
 	private NumberGame game;
-	
+	/** the label that shows the counter value. */
 	private Label label;
 	
+	/**
+	 * Initialize a CounterView, which shows value of a counter.
+	 * @param game the NumberGame to count.
+	 */
 	public CounterView(NumberGame game) {
 		this.game = game;
 		initComponents();
@@ -29,18 +40,13 @@ public class CounterView extends Stage implements Observer {
 		stage = this;
 		// components and containers for our window
 		HBox root = new HBox();
-		//TODO Set some padding around the HBox
 		root.setPadding(new Insets(10));
-		//TODO Align components in center of the HBox
 		root.setAlignment(Pos.CENTER);
 		// The label that will show the counter value.
 		label = new Label("   ");
 		// make the label big enough
 		label.setPrefWidth(144);
-		//TODO Make the text BIG. Use setFont to create a font.
-		//TODO Be careful to import the correct Font class (not java.awt.Font).
 		label.setFont(new Font("Arial", 80.0));
-		//TODO Set the text alignment to CENTER
 		label.setAlignment(Pos.CENTER);
 		// Add the label to the HBox.  You can all more components, too.
 		root.getChildren().add(label);
@@ -52,6 +58,7 @@ public class CounterView extends Stage implements Observer {
 		stage.sizeToScene();
 	}
 	
+	/** Show the window and update the counter value. */
 	public void run() {
 		stage.show();
 		displayCount();

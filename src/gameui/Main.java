@@ -11,10 +11,16 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-
+/**
+ * Create a JavaFX user interface with 1 input from user
+ * and 1 observers that show the counter from game.
+ * @author Patiphan Srisook
+ *
+ */
 public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
+		// Create NumberGame object
 		NumberGame game = new ShootGame(100);
 		
 		try {
@@ -46,8 +52,11 @@ public class Main extends Application {
 			return;
 		}
 		
+		// Create a CounterView with dependency injection.
 		CounterView view = new CounterView(game);
+		// Add an observer that displays the Counter value on window
 		game.addObserver(view);
+		// Show CounterView
 		view.run();
 	}
 	

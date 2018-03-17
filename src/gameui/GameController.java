@@ -8,6 +8,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Controller for the GuessingGame user interface.
+ * @author Patiphan Srisook
+ *
+ */
 public class GameController {
 
 	@FXML
@@ -20,7 +25,7 @@ public class GameController {
 	private Label hint;
 	@FXML
 	private Label count;
-	
+	/** The Numbergame that we want to handle. */
 	private NumberGame game;
 	
 	public void setGuessingGame(NumberGame game) {
